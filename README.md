@@ -23,7 +23,7 @@ A classic, modern, and fully responsive **Tic-Tac-Toe game** built using **HTML5
 
 ## 📸 Demo
 
-![Tic Tac Toe Preview](tictactoe-preview.png)
+![Tic Tac Toe Preview](tictactoe.png)
 
 ---
 
