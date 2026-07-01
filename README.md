@@ -34,3 +34,13 @@ A classic, modern, and fully responsive **Tic-Tac-Toe game** built using **HTML5
 ├── style.css       # Visual styles and animations
 └── script.js       # Game logic and win validation
 ```
+
+## 🚀 How to Run Locally
+
+### 1. Clone and Enter the Repository
+
+```bash
+git clone [https://github.com/amirsohail100/Tic-Tac-Toe.git](https://github.com/amirsohail100/Tic-Tac-Toe.git)
+cd Tic-Tac-Toe
+
+```
