@@ -21,17 +21,16 @@ const reset_new_game = ()=>{
     msgGame.classList.add("hide");
 }
 
-
 boxes.forEach((box) => {
     box.addEventListener("click",()=>{
         if(turn){
             box.innerText = "O";
             turn = false;
-            box.style.color = "blue"
+            box.style.color = "#00e5ff" // Neon Cyan for O
         }else{
             box.innerText = "X";
             turn = true;
-            box.style.color = "red"
+            box.style.color = "#ff3366" // Neon Pink for X
         }
         box.disabled = true;
         checlwin();
