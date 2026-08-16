@@ -1,22 +1,24 @@
-# ❌🅾️ Interactive Tic-Tac-Toe Game
+# ❌🅾️ 3D Interactive Tic-Tac-Toe Game
 
-A classic, modern, and fully responsive **Tic-Tac-Toe game** built using **HTML5, CSS3, and JavaScript**. Play against a friend locally with fluid animations, win-streak indicators, and a beautiful user interface.
+A classic, modern, and fully responsive **Tic-Tac-Toe game** built using **HTML5, CSS3, and JavaScript**. Play against a friend locally with a newly upgraded 3D user interface, smooth animations, and a vibrant neon aesthetic.
 
 ---
 
 ## 🚀 Features
 
-- **Turn Indicators:** Clear visual feedback showing whose turn (X or O) it currently is.
-- **Win/Tie Animations:** Highlights the winning combination on the grid with interactive effects.
-- **Instant Reset:** A dedicated button to quickly clear the board and start a new match.
-- **Responsive Layout:** Perfectly sized grids that adjust seamlessly for mobile, tablet, and desktop screens.
+- **3D Tactile Buttons:** Interactive game grid boxes and buttons that physically press down on click using CSS depths.
+- **Glassmorphism Design:** A beautiful frosted-glass game board hovering over a deep gradient space.
+- **Ambient Animations:** Floating 'X' and 'O' shapes in the background to ensure a highly dynamic and engaging environment.
+- **Neon Highlights:** Vibrant player colors (Neon Pink for X, Neon Cyan for O) for maximum contrast.
+- **Pop-In Win Screen:** Smooth, blurred glassmorphism overlay that pops in to announce the winner.
+- **Instant Reset:** A dedicated 3D button to quickly clear the board and start a new match.
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **HTML5:** Structured the game board grid and control buttons.
-- **CSS3:** Flexbox layout, dynamic hover animations, and custom typography.
+- **HTML5:** Structured the game board grid and background animation containers.
+- **CSS3:** Advanced Flexbox/Grid layouts, CSS Keyframe animations, 3D `box-shadow` depth techniques, and Glassmorphism (`backdrop-filter`).
 - **JavaScript (ES6):** Implemented game-state management, winning-logic validation, and event handling.
 
 ---
@@ -30,17 +32,7 @@ A classic, modern, and fully responsive **Tic-Tac-Toe game** built using **HTML5
 ## 📂 Project Structure
 
 ```text
-├── index.html      # Game board structure
-├── style.css       # Visual styles and animations
+├── index.html      # Game board structure & floating background elements
+├── style.css       # 3D visuals, glassmorphism styles, and animations
 └── script.js       # Game logic and win validation
-```
-
-## 🚀 How to Run Locally
-
-### 1. Clone and Enter the Repository
-
-```bash
-git clone [https://github.com/amirsohail100/Tic-Tac-Toe.git](https://github.com/amirsohail100/Tic-Tac-Toe.git)
-cd Tic-Tac-Toe
-
 ```
