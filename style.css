@@ -1,65 +1,197 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
 }
-body{
-    background-color: #548587;
-    text-align: center;
-}
-.container{
-    height: 70vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.game{
-    height: 60vmin;
-    width: 60vmin;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5vmin;
-}
-.box{
-    height: 18vmin;
-    width: 18vmin;
-    border-radius: 1rem;
-    border: none;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
-    font-size: 8vmin;
-    /* color: #b0413e; */
-    background-color: #ffffc3;
 
+body {
+    /* Modern Deep Gradient Background */
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    text-align: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
 }
-#re-btn{
-    padding: 1rem;
-    font-size: 1.25rem;
-    background-color: #191913;
-    color: white;
-    border-radius: 1rem;
-    border: none;
+
+/* --- Floating Background Animations --- */
+.floating-bg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+    overflow: hidden;
 }
-#new-game{
-    padding: 1rem;
-    font-size: 1.25rem;
-    background-color: #191913;
-    color: white;
-    border-radius: 1rem;
-    border: none;
+
+.shape {
+    position: absolute;
+    font-size: 15vmin;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.05);
+    animation: floatUp 12s linear infinite;
+    bottom: -20vh;
 }
-#msg{
-    color: #ffffc3;
-    font-size: 5vmin;
+
+.shape:nth-child(1) { left: 10%; animation-duration: 10s; }
+.shape:nth-child(2) { left: 25%; animation-duration: 14s; animation-delay: -3s; }
+.shape:nth-child(3) { left: 45%; animation-duration: 9s; animation-delay: -5s; }
+.shape:nth-child(4) { left: 65%; animation-duration: 15s; animation-delay: -2s; }
+.shape:nth-child(5) { left: 80%; animation-duration: 11s; animation-delay: -7s; }
+.shape:nth-child(6) { left: 90%; animation-duration: 13s; animation-delay: -1s; }
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-130vh) rotate(360deg); }
 }
-.msg-game{
-    height: 100vmin;
+
+/* --- Main Layout --- */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 1.5rem;
+}
+
+.title {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    animation: pulseTitle 2s infinite alternate;
+}
+
+@keyframes pulseTitle {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+/* Glassmorphism Game Board */
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    gap: 4rem;
 }
-.hide{
-    display: none;
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2vmin;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3vmin;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 65vmin;
+    height: 65vmin;
+}
+
+/* --- 3D Tactile Boxes --- */
+.box {
+    border-radius: 15px;
+    border: none;
+    background-color: #ffffff;
+    font-size: 10vmin;
+    font-weight: 900;
+    cursor: pointer;
+    /* 3D Depth Shadow */
+    box-shadow: 0 8px 0 #cbd5e1, 0 15px 20px rgba(0,0,0,0.2);
+    transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.box:active {
+    /* Press Down Effect */
+    transform: translateY(8px);
+    box-shadow: 0 0px 0 #cbd5e1, 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.box:disabled {
+    cursor: not-allowed;
+    /* Stays pressed down when disabled */
+    transform: translateY(8px);
+    box-shadow: 0 0px 0 #cbd5e1, 0 5px 10px rgba(0,0,0,0.1);
+    background-color: #f8fafc;
+}
+
+/* --- 3D Control Buttons --- */
+#re-btn, #new-game {
+    padding: 1rem 2.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+    color: white;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #d94b68, 0 15px 20px rgba(0,0,0,0.3);
+    transition: all 0.15s ease;
+}
+
+#re-btn:active, #new-game:active {
+    transform: translateY(8px);
+    box-shadow: 0 0px 0 #d94b68, 0 5px 10px rgba(0,0,0,0.3);
+}
+
+#new-game {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    box-shadow: 0 8px 0 #28b85c, 0 15px 20px rgba(0,0,0,0.3);
+}
+
+#new-game:active {
+    box-shadow: 0 0px 0 #28b85c, 0 5px 10px rgba(0,0,0,0.3);
+}
+
+/* --- Overlay & Pop-in Animation --- */
+.msg-game {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.msg-game.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.msg-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4rem;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    transform: scale(1);
+    animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+#msg {
+    color: #fff;
+    font-size: 8vmin;
+    text-shadow: 0 4px 15px rgba(255,255,255,0.4);
+    text-transform: capitalize;
+    font-weight: 900;
 }
