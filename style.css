@@ -6,7 +6,6 @@
 }
 
 body {
-    /* Modern Deep Gradient Background */
     background: linear-gradient(135deg, #1f1c2c, #928dab);
     text-align: center;
     min-height: 100vh;
@@ -68,7 +67,7 @@ main {
     to { transform: scale(1.05); }
 }
 
-/* Glassmorphism Game Board */
+/* Glassmorphism Game Board - Fixed layout bug with auto-fit & aspect ratio */
 .container {
     display: flex;
     justify-content: center;
@@ -78,6 +77,7 @@ main {
 .game {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     gap: 2vmin;
     background: rgba(255, 255, 255, 0.1);
     padding: 3vmin;
@@ -85,20 +85,25 @@ main {
     backdrop-filter: blur(12px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    width: 65vmin;
-    height: 65vmin;
+    width: 45vmin;
+    height: 45vmin;
+    max-width: 400px;
+    max-height: 400px;
 }
 
-/* --- 3D Tactile Boxes --- */
+/* --- 3D Tactile Boxes (Ensured Perfect Squares) --- */
 .box {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
     border-radius: 15px;
     border: none;
     background-color: #ffffff;
-    font-size: 10vmin;
+    font-size: 8vmin;
     font-weight: 900;
     cursor: pointer;
     /* 3D Depth Shadow */
-    box-shadow: 0 8px 0 #cbd5e1, 0 15px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 0 #cbd5e1, 0 12px 15px rgba(0,0,0,0.2);
     transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     justify-content: center;
@@ -108,15 +113,15 @@ main {
 
 .box:active {
     /* Press Down Effect */
-    transform: translateY(8px);
-    box-shadow: 0 0px 0 #cbd5e1, 0 5px 10px rgba(0,0,0,0.2);
+    transform: translateY(6px);
+    box-shadow: 0 0px 0 #cbd5e1, 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .box:disabled {
     cursor: not-allowed;
     /* Stays pressed down when disabled */
-    transform: translateY(8px);
-    box-shadow: 0 0px 0 #cbd5e1, 0 5px 10px rgba(0,0,0,0.1);
+    transform: translateY(6px);
+    box-shadow: 0 0px 0 #cbd5e1, 0 4px 8px rgba(0,0,0,0.1);
     background-color: #f8fafc;
 }
 
