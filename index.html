@@ -3,16 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
+    <title>Tic Tac Toe - 3D Edition</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Added Google Fonts for modern gaming look -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="msg-game hide">
-        <p id="msg">win</p>
-        <button id="new-game">New Game</button>
+    <!-- Background Animated Shapes (Fills empty space) -->
+    <div class="floating-bg">
+        <div class="shape">X</div>
+        <div class="shape">O</div>
+        <div class="shape">X</div>
+        <div class="shape">O</div>
+        <div class="shape">X</div>
+        <div class="shape">O</div>
     </div>
+
+    <!-- Win/Message Screen -->
+    <div class="msg-game hide">
+        <div class="msg-box">
+            <p id="msg">win</p>
+            <button id="new-game">New Game</button>
+        </div>
+    </div>
+
     <main>
-        <h1>Tic Tac Toe</h1>
+        <h1 class="title">Tic Tac Toe</h1>
         <div class="container">
             <div class="game">
                 <button class="box"></button>
@@ -25,9 +41,8 @@
                 <button class="box"></button>
                 <button class="box"></button>
             </div>
-            
         </div>
-        <button id="re-btn">Reset Gamer</button>
+        <button id="re-btn">Reset Game</button>
     </main>
     <script src="script.js"></script>
 </body>
